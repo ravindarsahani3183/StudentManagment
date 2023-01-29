@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<body>
+     <div class="conainer">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <div class="card m-5">
+                        <h3 class="text-center">Update Student Data</h3>
+                        
+                        <div class="card-body">
+                        <div th:if="${session.msg}">
+                        <h5 class="text-center text-success" th:text ="${session.msg}"></h5>
+                        </div>
+                              <form th:action="@{/update_student}" method="post">
+                              <input type="hidden" th:value="${student.id}" name="id">
+                              <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Id</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Id" name="Id" th:value="${student.id}">
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name" name="Name" th:value="${student.name}">
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Address </label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Address" name="Address" th:value="${student.address}">
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"> Email</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email" name="Email" th:value="${student.email}">
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">contact</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="contact" name="mobileNumber" th:value="${student.mobileNumber}">
+                              </div>
+                               <button type="submit"class="btn btn-outline-success w-100">Edit Data</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+</body>
+</html>
